@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('transfer.frontend')
 <!DOCTYPE html>
 <html>
     <head>

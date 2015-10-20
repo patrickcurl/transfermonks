@@ -35,4 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    //Socialite
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect'      => env('FACEBOOK_APP_REDIRECT'),
+        // 'redirect'      => 'http://laravel.dev/login/callback/facebook',
+    ],
+
 ];
