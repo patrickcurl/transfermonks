@@ -1,107 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>TransferMonks :: @yield('title')</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-   <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/small-business.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/login-register.css') }}" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- Bootstrap -->
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
+	<link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
+	<link href="{{asset('css/style.css')}}" rel="stylesheet" />	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-</head>
-<body>
-
-    @include('transfer.navbar')
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Heading Row -->
-        <div class="row">
-            <div class="col-md-6">
-                <img class="img-responsive img-rounded" src="{{ asset('img/wordpress-transfer-service.jpg') }}" alt="Wordpress Transfer Service">
-            </div>
-            <!-- /.col-md-8 -->
-            <div class="col-md-5">
-                <h1>Business Name or Tagline</h1>
-                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
-                <a class="btn btn-primary btn-lg" href="#">Call to Action!</a>
-            </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Call to Action Well -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="well text-center">
-                    This is a well that is a great spot for a business tagline or phone number for easy access!
-                </div>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-        
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Heading 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2>Heading 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4">
-                <h2>Heading 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rem nisi accusamus error velit animi non ipsa placeat. Recusandae, suscipit, soluta quibusdam accusamus a veniam quaerat eveniet eligendi dolor consectetur.</p>
-                <a class="btn btn-default" href="#">More Info</a>
-            </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
+  </head>
+  <body>
+	<header>		
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="navigation">
+				<div class="container">					
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<div class="navbar-brand">
+							<a href="index.html"><h1><span>Transfer</span>Monks</h1></a>
+						</div>
+					</div>
+					
+					<div class="navbar-collapse collapse">							
+						<div class="menu">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation"><a href="index.html">Home</a></li>
+								<li role="presentation"><a href="about.html">About Us</a></li>
+								<li role="presentation"><a href="services.html">Services</a></li>								
+								<li role="presentation"><a href="portfolio.html" class="active">Portfolio</a></li>
+								<li role="presentation"><a href="blog.html">Blog</a></li>
+								<li role="presentation"><a href="contact.html">Contact</a></li>						
+							</ul>
+						</div>
+					</div>						
+				</div>
+			</div>	
+		</nav>		
+	</header>
+	
+	<div id="breadcrumb">
+		<div class="container">	
+			<div class="breadcrumb">							
+				<li><a href="index.html">Home</a></li>
+				<li>@yield('breadcrumb')</li>			
+			</div>		
+		</div>	
+	</div>
+	
+	<section id="content">	
+        <div class="container">
+        @if(Session::has('message'))
+            {{ Session::get('message') }}
+        @endif
         @yield('content')
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
+        </div>
+    </section><!--/#portfolio-item-->
+	
 
-    </div>
-    <!-- /.container -->
-@include('transfer.loginmodal')
-    <!-- jQuery -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/login-register.js') }}" type="text/javascript"></script>
-</body>
-
+	<footer>
+		<div class="footer">
+			<div class="container">
+				<div class="social-icon">
+					<div class="col-md-4">
+						<ul class="social-network">
+							<li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#" class="gplus tool-tip" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+						</ul>	
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-md-offset-4">
+					<div class="copyright">
+						&copy; June  2015 by <a target="_blank" href="http://gadgetmonks.com/" title="GadgetMonks Computer, iPhone, and Android Device Repair">GadgetMonks</a>. All Rights Reserved.
+					</div>
+                  
+				</div>						
+			</div>
+			<div class="pull-right">
+				<a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+			</div>
+		</div>
+	</footer>
+	
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>	
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('js/jquery.isotope.min.js')}}"></script>  
+	<script src="{{asset('js/wow.min.js')}}"></script>
+	<script src="{{asset('js/functions.js')}}"></script>
+  </body>
 </html>
